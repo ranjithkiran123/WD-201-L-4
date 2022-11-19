@@ -10,7 +10,7 @@ describe("Todo List Test Suite", () => {
       {
         title: "testing1",
         completed: false,
-        dueDate: new Date(today.getTime() - oneday).toLocaleDateString(
+        dueDate: new Date(this_game.getTime() - some_game).toLocaleDateString(
           "en-CA"
         ),
       },
@@ -22,16 +22,16 @@ describe("Todo List Test Suite", () => {
       {
         title: "testing3",
         completed: false,
-        dueDate: new Date(today.getTime() + oneday).toLocaleDateString(
+        dueDate: new Date(this_game.getTime() + some_game).toLocaleDateString(
           "en-CA"
         ),
       },
     ].forEach(add);
   });
-  test("checking creation of new todo", () => {
+  test("new todo creation", () => {
     expect(all.length).toEqual(3);
     add({
-      title: "come lets play",
+      title: "come lets dance",
       completed: false,
       dueDate: new Date().toLocaleDateString("en-CA"),
     });
@@ -39,21 +39,21 @@ describe("Todo List Test Suite", () => {
     expect(all.length).toEqual(4);
   });
 
-  test("checks marking a todo completetion", () => {
+  test("completion of todo", () => {
     expect(all[0].completed).toEqual(false);
     markAsComplete(0);
     expect(all[0].completed).toEqual(true);
   });
 
-  test("checks the retrieval of over due items", () => {
+  test("due that is over items retrieval checking", () => {
     expect(overdue().length).toEqual(1);
   });
 
-  test("checks the retrieval of due today items", () => {
+  test("today due items retrieval checking", () => {
     expect(dueToday().length).toEqual(2);
   });
 
-  test("checks the retrieval of due later items", () => {
+  test("laters due items retrieval checking", () => {
     expect(dueLater().length).toEqual(1);
   });
 });
